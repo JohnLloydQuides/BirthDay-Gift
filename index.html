@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10060e"><title>A Birthday Surprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head><body><main class="card"><div class="heart">♥</div><p class="eyebrow">A little something, just for you</p><h1>Our world awaits</h1><p>Enter your birthday password to unlock your surprise.</p><form id="gate"><input id="password" type="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required><button type="submit">Unlock Surprise ♡</button><p class="error" id="error" aria-live="polite"></p></form></main>
+<script>
+// Change this passcode to personalize the page.
+const BIRTHDAY_PASSWORD = 'Baby';
+document.querySelector('#gate').addEventListener('submit', event => {
+  event.preventDefault();
+  if (document.querySelector('#password').value === BIRTHDAY_PASSWORD) {
+    sessionStorage.setItem('birthdayUnlocked', 'yes');
+    document.body.classList.add('page-leaving');
+    setTimeout(() => { location.href = 'birthday.html'; }, 240);
+  } else {
+    document.querySelector('#error').textContent = 'That password did not match. Try again ♡';
+  }
+});
+</script></body></html>
+
+
+
+
+
